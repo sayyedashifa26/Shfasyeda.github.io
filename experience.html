@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience — Sayyeda Shifa</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--black:#0a0a0a;--black2:#111;--black3:#1a1a1a;--orange:#FF6B00;--orange2:#FF8C38;--white:#F5F0E8;--gray:#888;--gray2:#555;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(1px 1px at 8% 18%,rgba(255,255,255,.45) 0%,transparent 100%),radial-gradient(1px 1px at 45% 8%,rgba(255,255,255,.4) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 90% 68%,rgba(255,255,255,.35) 0%,transparent 100%);}
+main,.page-wrap{position:relative;z-index:1;}
+::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:#0a0a0a;}::-webkit-scrollbar-thumb{background:#FF6B00;border-radius:3px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(10,10,10,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,107,0,0.12);}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:var(--orange);letter-spacing:-0.5px;text-decoration:none;}
+.logo span{color:var(--white);}
+.nav-links{display:flex;gap:6px;list-style:none;align-items:center;}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:0.85rem;font-weight:500;padding:7px 13px;border-radius:6px;transition:all 0.25s;}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,107,0,0.1);}
+.nav-links a.active{color:var(--orange);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--orange);border-radius:2px;}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:199;background:rgba(10,10,10,0.98);flex-direction:column;align-items:center;justify-content:center;gap:28px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;color:var(--white);text-decoration:none;}
+.mobile-menu a.active,.mobile-menu a:hover{color:var(--orange);}
+.close-btn{position:absolute;top:22px;right:36px;font-size:2rem;color:var(--orange);background:none;border:none;cursor:pointer;}
+.page-wrap{max-width:860px;margin:0 auto;padding:110px 48px 80px;}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;text-align:center;margin-bottom:50px;line-height:1.1;}
+.section-title .hl{color:var(--orange);}
+/* TIMELINE */
+.timeline{position:relative;padding-left:36px;}
+.timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--orange),rgba(255,107,0,0.05));border-radius:2px;}
+.timeline-item{position:relative;margin-bottom:52px;}
+.timeline-item:last-child{margin-bottom:0;}
+.timeline-item::before{content:'';position:absolute;left:-30px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--orange);box-shadow:0 0 14px rgba(255,107,0,0.7);border:2px solid var(--black3);}
+.t-header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:4px;flex-wrap:wrap;}
+.t-title{font-family:'Syne',sans-serif;font-size:1.08rem;font-weight:700;color:var(--white);}
+.t-date{font-size:0.78rem;color:var(--gray2);letter-spacing:0.5px;white-space:nowrap;padding-top:3px;}
+.t-company{color:var(--orange);font-size:0.9rem;font-weight:500;margin-bottom:12px;}
+.t-bullets{list-style:none;padding:0;}
+.t-bullets li{font-size:0.88rem;color:#aaa;line-height:1.75;padding-left:18px;position:relative;margin-bottom:4px;}
+.t-bullets li::before{content:'›';position:absolute;left:0;color:var(--orange);font-weight:700;font-size:1rem;}
+/* EDUCATION */
+.edu-wrap{margin-top:80px;}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+.edu-card{background:var(--black3);border:1px solid rgba(255,107,0,0.15);border-radius:12px;padding:24px 22px;transition:all 0.3s;}
+.edu-card:hover{border-color:var(--orange);transform:translateY(-3px);box-shadow:0 8px 24px rgba(255,107,0,0.15);}
+.edu-card .edu-icon{font-size:1.8rem;margin-bottom:12px;}
+.edu-card h4{font-family:'Syne',sans-serif;font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:5px;}
+.edu-card .edu-inst{font-size:0.82rem;color:var(--gray);line-height:1.5;margin-bottom:8px;}
+.edu-card .edu-year{font-size:0.78rem;color:var(--orange);font-weight:600;letter-spacing:0.5px;}
+footer{background:var(--black2);border-top:1px solid rgba(255,107,0,0.1);padding:36px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;z-index:1;}
+.footer-left p{font-size:0.85rem;color:var(--gray);line-height:1.6;}
+.footer-left .fn{color:var(--orange);}
+.footer-socials{display:flex;gap:18px;}
+.footer-socials a{width:40px;height:40px;background:var(--black3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:1rem;text-decoration:none;border:1px solid rgba(255,107,0,0.15);transition:all 0.3s;}
+.footer-socials a:hover{background:var(--orange);color:#000;transform:translateY(-3px);}
+.fadein{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fadein.visible{opacity:1;transform:translateY(0);}
+@media(max-width:900px){nav{padding:14px 24px;}.nav-links{display:none;}.hamburger{display:flex;}.page-wrap{padding:100px 20px 60px;}.t-header{flex-direction:column;gap:2px;}footer{flex-direction:column;align-items:center;text-align:center;padding:28px 20px;}}
+@media(max-width:480px){.page-wrap{padding:90px 14px 50px;}.timeline{padding-left:26px;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">SS<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="experience.html" class="active">Experience</a></li>
+    <li><a href="resume.html">Resume</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mm">
+  <button class="close-btn" onclick="document.getElementById('mm').classList.remove('open')">✕</button>
+  <a href="index.html" onclick="document.getElementById('mm').classList.remove('open')">Home</a>
+  <a href="about.html" onclick="document.getElementById('mm').classList.remove('open')">About</a>
+  <a href="projects.html" onclick="document.getElementById('mm').classList.remove('open')">Projects</a>
+  <a href="experience.html" class="active" onclick="document.getElementById('mm').classList.remove('open')">Experience</a>
+  <a href="resume.html" onclick="document.getElementById('mm').classList.remove('open')">Resume</a>
+</div>
+<main>
+<div class="page-wrap">
+  <h2 class="section-title fadein">Work <span class="hl">Experience</span></h2>
+  <div class="timeline fadein">
+    <div class="timeline-item">
+      <div class="t-header"><span class="t-title">Credentialing Specialist</span><span class="t-date">Feb 2024 – Dec 2024</span></div>
+      <div class="t-company">Technocraze Computing Solution</div>
+      <ul class="t-bullets">
+        <li>Managed U.S. dental healthcare provider onboarding, credential verification, and compliance.</li>
+        <li>Maintained portal systems and ensured data integrity across complex databases.</li>
+        <li>Provided IT support, resolved technical issues, and implemented system updates.</li>
+        <li>Collaborated cross-functionally to streamline credentialing workflows.</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="t-header"><span class="t-title">Freelance Graphic &amp; Web Designer</span><span class="t-date">Jul 2023 – Jan 2024</span></div>
+      <div class="t-company">Self-Employed</div>
+      <ul class="t-bullets">
+        <li>Delivered custom web solutions and graphic design for diverse clients.</li>
+        <li>Used HTML, CSS, JavaScript, and Figma to translate business needs into digital experiences.</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="t-header"><span class="t-title">Web Developer Trainer &amp; Intern</span><span class="t-date">Sep 2022 – Feb 2023</span></div>
+      <div class="t-company">Design Master</div>
+      <ul class="t-bullets">
+        <li>Trained in modern web technologies and contributed to real-world development projects.</li>
+        <li>Mentored fellow learners in web development fundamentals.</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <div class="t-header"><span class="t-title">Digital Marketing Intern</span><span class="t-date">Mar 2022 – Aug 2022</span></div>
+      <div class="t-company">EKarma</div>
+      <ul class="t-bullets">
+        <li>Implemented SEO, content marketing, graphic design, and online brand growth strategies.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="edu-wrap">
+    <h2 class="section-title fadein">My <span class="hl">Education</span></h2>
+    <div class="edu-grid">
+      <div class="edu-card fadein"><div class="edu-icon">🎓</div><h4>Bachelor of Vocation — Web Development</h4><div class="edu-inst">J.C. Bose University of Science &amp; Technology, YMCA, Faridabad</div><div class="edu-year">2020 – 2023</div></div>
+      <div class="edu-card fadein"><div class="edu-icon">📘</div><h4>Diploma in Computer Science</h4><div class="edu-inst">Jamia Millia Islamia, Central University, New Delhi</div><div class="edu-year">2016 – 2019</div></div>
+      <div class="edu-card fadein"><div class="edu-icon">🏫</div><h4>Secondary Education — CBSE</h4><div class="edu-inst">SFDAV Public School, Mansoorpur</div><div class="edu-year">2005 – 2016</div></div>
+    </div>
+  </div>
+</div>
+</main>
+<footer>
+  <div class="footer-left"><p>Designed and Developed by <span class="fn">Sayyeda Shifa</span></p><p>Copyright &copy; 2026</p></div>
+  <div class="footer-socials">
+    <a href="https://github.com/sayyedashifa26" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.threads.com/@sayedashifa._" target="_blank"><i class="fab fa-threads"></i></a>
+  </div>
+</footer>
+<script>
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:0.1});
+document.querySelectorAll('.fadein').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

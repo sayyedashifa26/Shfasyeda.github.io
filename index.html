@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sayyeda Shifa — Home</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--black:#0a0a0a;--black2:#111;--black3:#1a1a1a;--orange:#FF6B00;--orange2:#FF8C38;--white:#F5F0E8;--gray:#888;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(1px 1px at 8% 18%,rgba(255,255,255,.45) 0%,transparent 100%),radial-gradient(1px 1px at 25% 65%,rgba(255,255,255,.3) 0%,transparent 100%),radial-gradient(1px 1px at 45% 8%,rgba(255,255,255,.4) 0%,transparent 100%),radial-gradient(1px 1px at 68% 78%,rgba(255,255,255,.3) 0%,transparent 100%),radial-gradient(1px 1px at 82% 33%,rgba(255,255,255,.4) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 90% 68%,rgba(255,255,255,.35) 0%,transparent 100%);}
+section,main{position:relative;z-index:1;}
+::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:#0a0a0a;}::-webkit-scrollbar-thumb{background:#FF6B00;border-radius:3px;}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(10,10,10,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,107,0,0.12);}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:var(--orange);letter-spacing:-0.5px;text-decoration:none;}
+.logo span{color:var(--white);}
+.nav-links{display:flex;gap:6px;list-style:none;align-items:center;}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:0.85rem;font-weight:500;padding:7px 13px;border-radius:6px;transition:all 0.25s;}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,107,0,0.1);}
+.nav-links a.active{color:var(--orange);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--orange);border-radius:2px;}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:199;background:rgba(10,10,10,0.98);flex-direction:column;align-items:center;justify-content:center;gap:28px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;color:var(--white);text-decoration:none;}
+.mobile-menu a.active,.mobile-menu a:hover{color:var(--orange);}
+.close-btn{position:absolute;top:22px;right:36px;font-size:2rem;color:var(--orange);background:none;border:none;cursor:pointer;}
+/* HERO */
+#home{min-height:100vh;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:120px 60px 80px;max-width:1200px;margin:0 auto;position:relative;}
+.greeting{font-size:1.3rem;margin-bottom:10px;animation:fadeUp .7s ease both;}
+.wave{display:inline-block;animation:wave 2s ease-in-out infinite;transform-origin:70% 70%;}
+.hero-name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.6rem,6vw,5rem);line-height:1.05;margin-bottom:18px;animation:fadeUp .7s .1s ease both;}
+.hero-name .hl{color:var(--orange);}
+.typewriter{font-size:clamp(1rem,2.5vw,1.4rem);color:var(--orange2);font-weight:300;margin-bottom:40px;min-height:2.2rem;animation:fadeUp .7s .2s ease both;}
+.cursor{border-right:2px solid var(--orange);animation:blink 1s step-end infinite;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .7s .3s ease both;}
+.btn-primary{background:var(--orange);color:#000;padding:13px 28px;border-radius:6px;font-weight:700;font-size:0.9rem;text-decoration:none;transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer;}
+.btn-primary:hover{background:var(--orange2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,0,0.4);}
+.btn-outline{background:transparent;color:var(--orange);padding:12px 28px;border-radius:6px;font-weight:700;font-size:0.9rem;text-decoration:none;border:2px solid var(--orange);transition:all 0.3s;display:inline-flex;align-items:center;gap:8px;}
+.btn-outline:hover{background:rgba(255,107,0,0.15);transform:translateY(-2px);}
+.hero-illus{position:absolute;right:40px;bottom:40px;width:min(460px,44vw);opacity:.92;animation:floatY 6s ease-in-out infinite;}
+/* FOOTER */
+footer{background:var(--black2);border-top:1px solid rgba(255,107,0,0.1);padding:36px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;z-index:1;}
+.footer-left p{font-size:0.85rem;color:var(--gray);line-height:1.6;}
+.footer-left .fn{color:var(--orange);}
+.footer-socials{display:flex;gap:18px;}
+.footer-socials a{width:40px;height:40px;background:var(--black3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:1rem;text-decoration:none;border:1px solid rgba(255,107,0,0.15);transition:all 0.3s;}
+.footer-socials a:hover{background:var(--orange);color:#000;transform:translateY(-3px);}
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes wave{0%,100%{transform:rotate(0)}25%{transform:rotate(20deg)}75%{transform:rotate(-10deg)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes f1{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes f2{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes f3{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes f4{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+/* RESPONSIVE */
+@media(max-width:900px){nav{padding:14px 24px;}.nav-links{display:none;}.hamburger{display:flex;}#home{padding:110px 24px 380px;align-items:center;text-align:center;}.hero-illus{right:50%;transform:translateX(50%);bottom:20px;width:min(340px,88vw);animation:none;}.hero-btns{justify-content:center;}footer{flex-direction:column;align-items:center;text-align:center;padding:28px 20px;}}
+@media(max-width:480px){#home{padding:100px 16px 320px;}.hero-illus{width:90vw;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">SS<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="resume.html">Resume</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mm">
+  <button class="close-btn" onclick="document.getElementById('mm').classList.remove('open')">✕</button>
+  <a href="index.html" class="active" onclick="document.getElementById('mm').classList.remove('open')">Home</a>
+  <a href="about.html" onclick="document.getElementById('mm').classList.remove('open')">About</a>
+  <a href="projects.html" onclick="document.getElementById('mm').classList.remove('open')">Projects</a>
+  <a href="experience.html" onclick="document.getElementById('mm').classList.remove('open')">Experience</a>
+  <a href="resume.html" onclick="document.getElementById('mm').classList.remove('open')">Resume</a>
+</div>
+<main>
+<section id="home">
+  <p class="greeting">Hi There! <span class="wave">👋</span></p>
+  <h1 class="hero-name">I'M <span class="hl">Sayyeda<br>Shifa</span></h1>
+  <div class="typewriter"><span id="tw"></span><span class="cursor">&nbsp;</span></div>
+  <div class="hero-btns">
+    <a href="about.html" class="btn-primary"><i class="fas fa-user"></i> About Me</a>
+    <a href="projects.html" class="btn-outline"><i class="fas fa-code"></i> View Projects</a>
+  </div>
+  <div class="hero-illus">
+    <svg viewBox="0 0 440 400" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
+      <defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+      <rect x="55" y="298" width="310" height="13" rx="5" fill="#1c1c1c" stroke="#FF6B00" stroke-width="1.2"/>
+      <rect x="74" y="311" width="10" height="55" rx="4" fill="#181818"/>
+      <rect x="336" y="311" width="10" height="55" rx="4" fill="#181818"/>
+      <rect x="95" y="110" width="220" height="152" rx="10" fill="#0d0d0d" stroke="#FF6B00" stroke-width="2" filter="url(#glow)"/>
+      <rect x="104" y="119" width="202" height="134" rx="5" fill="#080808"/>
+      <rect x="196" y="262" width="16" height="36" fill="#222"/>
+      <rect x="168" y="295" width="72" height="7" rx="3" fill="#222"/>
+      <line x1="123" y1="122" x2="123" y2="248" stroke="#1e1e1e" stroke-width="1"/>
+      <text x="111" y="135" font-family="monospace" font-size="6.5" fill="#3a3a3a">01</text>
+      <text x="111" y="148" font-family="monospace" font-size="6.5" fill="#3a3a3a">02</text>
+      <text x="111" y="161" font-family="monospace" font-size="6.5" fill="#3a3a3a">03</text>
+      <text x="111" y="174" font-family="monospace" font-size="6.5" fill="#3a3a3a">04</text>
+      <text x="127" y="135" font-family="monospace" font-size="7.5" fill="#FF6B00">import</text>
+      <text x="163" y="135" font-family="monospace" font-size="7.5" fill="#ccc"> boto3, os</text>
+      <text x="127" y="148" font-family="monospace" font-size="7.5" fill="#FF8C38">class</text>
+      <text x="154" y="148" font-family="monospace" font-size="7.5" fill="#7ec8e3"> CloudDeploy:</text>
+      <text x="136" y="161" font-family="monospace" font-size="7.5" fill="#FF8C38">  def upload(self):</text>
+      <text x="136" y="174" font-family="monospace" font-size="7.5" fill="#888">    s3 = boto3.client('s3')</text>
+      <rect x="127" y="180" width="5" height="9" rx="1" fill="#FF6B00"><animate attributeName="opacity" values="1;0;1" dur="1.2s" repeatCount="indefinite"/></rect>
+      <rect x="112" y="300" width="138" height="17" rx="4" fill="#141414" stroke="#222" stroke-width="1"/>
+      <rect x="116" y="303" width="9" height="5" rx="1" fill="#1e1e1e"/><rect x="129" y="303" width="9" height="5" rx="1" fill="#1e1e1e"/>
+      <rect x="142" y="303" width="9" height="5" rx="1" fill="#FF6B00" opacity="0.5"/><rect x="155" y="303" width="9" height="5" rx="1" fill="#1e1e1e"/>
+      <rect x="260" y="294" width="22" height="30" rx="11" fill="#141414" stroke="#222" stroke-width="1"/>
+      <line x1="271" y1="294" x2="271" y2="310" stroke="#222" stroke-width="1"/>
+      <!-- Girl -->
+      <rect x="318" y="220" width="66" height="10" rx="5" fill="#1a1a1a"/>
+      <rect x="340" y="230" width="16" height="70" rx="4" fill="#181818"/>
+      <path d="M328 290 Q326 315 320 328" stroke="#e8b89a" stroke-width="12" stroke-linecap="round" fill="none"/>
+      <path d="M362 290 Q364 315 370 328" stroke="#e8b89a" stroke-width="12" stroke-linecap="round" fill="none"/>
+      <ellipse cx="318" cy="331" rx="14" ry="7" fill="#1a0800"/><ellipse cx="372" cy="331" rx="14" ry="7" fill="#1a0800"/>
+      <path d="M312 248 Q345 262 378 248 L380 292 Q345 302 312 292Z" fill="#1a0800"/>
+      <path d="M318 188 Q345 200 372 188 L380 248 Q345 256 312 248Z" fill="#FF6B00" opacity="0.9"/>
+      <path d="M318 210 Q296 240 252 296" stroke="#e8b89a" stroke-width="12" stroke-linecap="round" fill="none"/>
+      <path d="M372 210 Q382 238 376 285" stroke="#e8b89a" stroke-width="12" stroke-linecap="round" fill="none"/>
+      <ellipse cx="252" cy="298" rx="10" ry="8" fill="#e8b89a"/><ellipse cx="376" cy="287" rx="10" ry="8" fill="#e8b89a"/>
+      <rect x="337" y="163" width="16" height="28" rx="7" fill="#e8b89a"/>
+      <ellipse cx="345" cy="145" rx="28" ry="30" fill="#e8b89a"/>
+      <ellipse cx="345" cy="125" rx="32" ry="20" fill="#3d2314"/>
+      <path d="M317 135 Q308 158 312 185" stroke="#3d2314" stroke-width="16" stroke-linecap="round" fill="none"/>
+      <path d="M373 135 Q382 158 378 185" stroke="#3d2314" stroke-width="14" stroke-linecap="round" fill="none"/>
+      <path d="M317 125 Q345 108 373 125 Q373 140 345 142 Q317 140 317 125Z" fill="#3d2314"/>
+      <ellipse cx="317" cy="147" rx="6" ry="8" fill="#e8b89a"/><ellipse cx="373" cy="147" rx="6" ry="8" fill="#e8b89a"/>
+      <path d="M333 137 Q339 133 345 136" stroke="#3d2314" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <path d="M345 136 Q351 133 357 137" stroke="#3d2314" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="336" cy="145" rx="6" ry="6.5" fill="white"/><ellipse cx="354" cy="145" rx="6" ry="6.5" fill="white"/>
+      <ellipse cx="336" cy="146" rx="4" ry="4.5" fill="#2a1200"/><ellipse cx="354" cy="146" rx="4" ry="4.5" fill="#2a1200"/>
+      <ellipse cx="337.5" cy="144" rx="1.5" ry="1.5" fill="white" opacity="0.9"/><ellipse cx="355.5" cy="144" rx="1.5" ry="1.5" fill="white" opacity="0.9"/>
+      <path d="M342 153 Q345 157 348 153" stroke="#c08878" stroke-width="1.3" fill="none"/>
+      <path d="M336 162 Q345 170 354 162" stroke="#c06858" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="328" cy="156" rx="8" ry="5" fill="#FFAAAA" opacity="0.35"/><ellipse cx="362" cy="156" rx="8" ry="5" fill="#FFAAAA" opacity="0.35"/>
+      <!-- Bubbles -->
+      <g style="animation:f2 3s ease-in-out infinite"><rect x="10" y="48" width="66" height="38" rx="9" fill="#1a0800" stroke="#FF6B00" stroke-width="1.8" filter="url(#glow)"/><text x="14" y="72" font-family="monospace" font-size="16" font-weight="bold" fill="#FF6B00">&lt;/&gt;</text></g>
+      <g style="animation:f1 3.5s ease-in-out infinite"><rect x="370" y="28" width="56" height="36" rx="9" fill="#1a0800" stroke="#FF8C38" stroke-width="1.8" filter="url(#glow)"/><text x="376" y="52" font-family="monospace" font-size="16" font-weight="bold" fill="#FF8C38">{ }</text></g>
+      <g style="animation:f4 2.8s ease-in-out infinite"><rect x="8" y="168" width="72" height="44" rx="9" fill="#1a0800" stroke="#FF6B00" stroke-width="1.8" filter="url(#glow)"/><text x="14" y="196" font-family="monospace" font-size="11" font-weight="bold" fill="#FF6B00">AWS ☁️</text></g>
+      <g style="animation:f4 2.6s ease-in-out infinite"><rect x="155" y="18" width="110" height="32" rx="9" fill="#1a0800" stroke="#FF6B00" stroke-width="1.5" filter="url(#glow)"/><text x="162" y="39" font-family="monospace" font-size="11" fill="#FF6B00">git push 🚀</text></g>
+      <g style="animation:f1 3.8s ease-in-out infinite"><rect x="385" y="230" width="56" height="32" rx="9" fill="#1a0800" stroke="#FF6B00" stroke-width="1.8" filter="url(#glow)"/><text x="392" y="251" font-family="monospace" font-size="12" fill="#FF6B00">.py 🐍</text></g>
+    </svg>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="footer-left">
+    <p>Designed and Developed by <span class="fn">Sayyeda Shifa</span></p>
+    <p>Copyright &copy; 2026</p>
+  </div>
+  <div class="footer-socials">
+    <a href="https://github.com/sayyedashifa26" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.threads.com/@sayedashifa._" target="_blank"><i class="fab fa-threads"></i></a>
+  </div>
+</footer>
+<script>
+const roles=["Cloud Engineer","Full Stack Developer","AWS Enthusiast","UI/UX Designer"];
+let ri=0,ci=0,del=false;
+const el=document.getElementById('tw');
+function type(){const w=roles[ri];if(!del){el.textContent=w.slice(0,++ci);if(ci===w.length){del=true;setTimeout(type,1800);return;}}else{el.textContent=w.slice(0,--ci);if(ci===0){del=false;ri=(ri+1)%roles.length;}}setTimeout(type,del?60:100);}
+type();
+</script>
+</body>
+</html>

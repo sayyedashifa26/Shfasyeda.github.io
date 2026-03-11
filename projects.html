@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Sayyeda Shifa</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+:root{--black:#0a0a0a;--black2:#111;--black3:#1a1a1a;--orange:#FF6B00;--orange2:#FF8C38;--white:#F5F0E8;--gray:#888;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(1px 1px at 8% 18%,rgba(255,255,255,.45) 0%,transparent 100%),radial-gradient(1px 1px at 45% 8%,rgba(255,255,255,.4) 0%,transparent 100%),radial-gradient(1px 1px at 82% 33%,rgba(255,255,255,.4) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 90% 68%,rgba(255,255,255,.35) 0%,transparent 100%);}
+main,.page-wrap{position:relative;z-index:1;}
+::-webkit-scrollbar{width:6px;}::-webkit-scrollbar-track{background:#0a0a0a;}::-webkit-scrollbar-thumb{background:#FF6B00;border-radius:3px;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(10,10,10,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,107,0,0.12);}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:var(--orange);letter-spacing:-0.5px;text-decoration:none;}
+.logo span{color:var(--white);}
+.nav-links{display:flex;gap:6px;list-style:none;align-items:center;}
+.nav-links a{color:var(--gray);text-decoration:none;font-size:0.85rem;font-weight:500;padding:7px 13px;border-radius:6px;transition:all 0.25s;}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,107,0,0.1);}
+.nav-links a.active{color:var(--orange);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--orange);border-radius:2px;}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:199;background:rgba(10,10,10,0.98);flex-direction:column;align-items:center;justify-content:center;gap:28px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;color:var(--white);text-decoration:none;}
+.mobile-menu a.active,.mobile-menu a:hover{color:var(--orange);}
+.close-btn{position:absolute;top:22px;right:36px;font-size:2rem;color:var(--orange);background:none;border:none;cursor:pointer;}
+.page-wrap{max-width:1100px;margin:0 auto;padding:110px 48px 80px;}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;text-align:center;margin-bottom:50px;line-height:1.1;}
+.section-title .hl{color:var(--orange);}
+.page-sub{text-align:center;color:var(--gray);margin-top:-38px;margin-bottom:50px;font-size:0.97rem;}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:26px;}
+.proj-card{background:var(--black3);border:1px solid rgba(255,107,0,0.15);border-radius:14px;overflow:hidden;transition:all 0.3s;display:flex;flex-direction:column;}
+.proj-card:hover{border-color:rgba(255,107,0,0.5);transform:translateY(-5px);box-shadow:0 14px 36px rgba(255,107,0,0.15);}
+.proj-img{height:178px;background:var(--black2);display:flex;align-items:center;justify-content:center;border-bottom:1px solid rgba(255,107,0,0.1);position:relative;}
+.proj-img-icon{width:72px;height:72px;background:rgba(255,107,0,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.proj-img-icon i{font-size:1.9rem;color:var(--orange);}
+.proj-tag-overlay{position:absolute;bottom:10px;right:10px;display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;}
+.proj-stag{background:rgba(255,107,0,0.18);border:1px solid rgba(255,107,0,0.3);color:var(--orange2);padding:2px 8px;border-radius:4px;font-size:0.68rem;font-weight:600;}
+.proj-body{padding:22px 20px 20px;flex:1;display:flex;flex-direction:column;}
+.proj-body h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:10px;color:var(--white);}
+.proj-body p{font-size:0.86rem;color:#999;line-height:1.75;margin-bottom:18px;flex:1;}
+.proj-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.proj-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border-radius:6px;font-size:0.8rem;font-weight:600;text-decoration:none;transition:all 0.3s;}
+.proj-btn.github{background:rgba(255,255,255,0.06);color:#ccc;border:1px solid rgba(255,255,255,0.12);}
+.proj-btn.github:hover{background:var(--orange);color:#000;border-color:var(--orange);}
+.proj-btn.demo{background:var(--orange);color:#000;border:1px solid var(--orange);}
+.proj-btn.demo:hover{background:var(--orange2);transform:translateY(-2px);}
+footer{background:var(--black2);border-top:1px solid rgba(255,107,0,0.1);padding:36px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;position:relative;z-index:1;}
+.footer-left p{font-size:0.85rem;color:var(--gray);line-height:1.6;}
+.footer-left .fn{color:var(--orange);}
+.footer-socials{display:flex;gap:18px;}
+.footer-socials a{width:40px;height:40px;background:var(--black3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:1rem;text-decoration:none;border:1px solid rgba(255,107,0,0.15);transition:all 0.3s;}
+.footer-socials a:hover{background:var(--orange);color:#000;transform:translateY(-3px);}
+.fadein{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fadein.visible{opacity:1;transform:translateY(0);}
+@media(max-width:900px){nav{padding:14px 24px;}.nav-links{display:none;}.hamburger{display:flex;}.page-wrap{padding:100px 20px 60px;}.projects-grid{grid-template-columns:1fr;}footer{flex-direction:column;align-items:center;text-align:center;padding:28px 20px;}}
+@media(max-width:480px){.page-wrap{padding:90px 14px 50px;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">SS<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="resume.html">Resume</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('mm').classList.toggle('open')" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mm">
+  <button class="close-btn" onclick="document.getElementById('mm').classList.remove('open')">✕</button>
+  <a href="index.html" onclick="document.getElementById('mm').classList.remove('open')">Home</a>
+  <a href="about.html" onclick="document.getElementById('mm').classList.remove('open')">About</a>
+  <a href="projects.html" class="active" onclick="document.getElementById('mm').classList.remove('open')">Projects</a>
+  <a href="experience.html" onclick="document.getElementById('mm').classList.remove('open')">Experience</a>
+  <a href="resume.html" onclick="document.getElementById('mm').classList.remove('open')">Resume</a>
+</div>
+<main>
+<div class="page-wrap">
+  <h2 class="section-title fadein">My Recent <span class="hl">Works</span></h2>
+  <p class="page-sub fadein">Here are a few projects I've worked on recently.</p>
+  <div class="projects-grid">
+    <div class="proj-card fadein">
+      <div class="proj-img"><div class="proj-img-icon"><i class="fas fa-cloud-upload-alt"></i></div><div class="proj-tag-overlay"><span class="proj-stag">AWS S3</span><span class="proj-stag">React</span><span class="proj-stag">Node.js</span></div></div>
+      <div class="proj-body"><h3>File Upload &amp; Download System</h3><p>Scalable file management using AWS S3, React frontend with Axios, and Node.js/Express backend API.</p><div class="proj-btns"><a href="https://github.com/sayyedashifa26" target="_blank" class="proj-btn github"><i class="fab fa-github"></i> GitHub</a></div></div>
+    </div>
+    <div class="proj-card fadein">
+      <div class="proj-img"><div class="proj-img-icon"><i class="fas fa-images"></i></div><div class="proj-tag-overlay"><span class="proj-stag">AWS S3</span><span class="proj-stag">Node.js</span><span class="proj-stag">MySQL</span></div></div>
+      <div class="proj-body"><h3>Serverless Image Upload System</h3><p>Upload, fetch and delete images via AWS S3. Image URLs auto-saved to a MySQL database for reference.</p><div class="proj-btns"><a href="https://github.com/sayyedashifa26" target="_blank" class="proj-btn github"><i class="fab fa-github"></i> GitHub</a></div></div>
+    </div>
+    <div class="proj-card fadein">
+      <div class="proj-img"><div class="proj-img-icon"><i class="fas fa-globe"></i></div><div class="proj-tag-overlay"><span class="proj-stag">AWS S3</span><span class="proj-stag">HTML/CSS</span></div></div>
+      <div class="proj-body"><h3>Static Website Hosting on S3</h3><p>Deployed a static website on Amazon S3 with custom bucket policy and public endpoint configuration.</p><div class="proj-btns"><a href="https://github.com/sayyedashifa26" target="_blank" class="proj-btn github"><i class="fab fa-github"></i> GitHub</a></div></div>
+    </div>
+    <div class="proj-card fadein">
+      <div class="proj-img"><div class="proj-img-icon"><i class="fas fa-file-alt"></i></div><div class="proj-tag-overlay"><span class="proj-stag">Java</span><span class="proj-stag">Tomcat</span><span class="proj-stag">SQL</span></div></div>
+      <div class="proj-body"><h3>Institute Examination System</h3><p>Full exam management platform with Java backend, Apache Tomcat server, and SQL database.</p><div class="proj-btns"><a href="https://github.com/sayyedashifa26" target="_blank" class="proj-btn github"><i class="fab fa-github"></i> GitHub</a></div></div>
+    </div>
+    <div class="proj-card fadein">
+      <div class="proj-img"><div class="proj-img-icon"><i class="fas fa-briefcase"></i></div><div class="proj-tag-overlay"><span class="proj-stag">HTML/CSS</span><span class="proj-stag">JavaScript</span><span class="proj-stag">Node.js</span></div></div>
+      <div class="proj-body"><h3>Enayaat.com — Freelance Project</h3><p>Commercial full-stack web project delivered for a real client, built collaboratively with a team of 2+ developers.</p><div class="proj-btns"><a href="https://github.com/sayyedashifa26" target="_blank" class="proj-btn github"><i class="fab fa-github"></i> GitHub</a><a href="https://enayaat.com" target="_blank" class="proj-btn demo"><i class="fas fa-desktop"></i> Demo</a></div></div>
+    </div>
+  </div>
+</div>
+</main>
+<footer>
+  <div class="footer-left"><p>Designed and Developed by <span class="fn">Sayyeda Shifa</span></p><p>Copyright &copy; 2026</p></div>
+  <div class="footer-socials">
+    <a href="https://github.com/sayyedashifa26" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.threads.com/@sayedashifa._" target="_blank"><i class="fab fa-threads"></i></a>
+  </div>
+</footer>
+<script>
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');}),{threshold:0.1});
+document.querySelectorAll('.fadein').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
