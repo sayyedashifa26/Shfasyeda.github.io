@@ -175,5 +175,46 @@ const el=document.getElementById('tw');
 function type(){const w=roles[ri];if(!del){el.textContent=w.slice(0,++ci);if(ci===w.length){del=true;setTimeout(type,1800);return;}}else{el.textContent=w.slice(0,--ci);if(ci===0){del=false;ri=(ri+1)%roles.length;}}setTimeout(type,del?60:100);}
 type();
 </script>
+<!-- Shifa Portfolio Tracker -->
+<script>
+(function(){
+  const KEY='shifa_analytics_v1';
+  function getData(){try{return JSON.parse(localStorage.getItem(KEY))||dd();}catch{return dd();}}
+  function dd(){return{visitors:0,pageviews:0,clicks:0,totalTime:0,sessionCount:0,pages:{},clickTargets:{},devices:{mobile:0,desktop:0,tablet:0},log:[]};}
+  function save(d){localStorage.setItem(KEY,JSON.stringify(d));}
+  function dev(){var ua=navigator.userAgent;if(/tablet|ipad/i.test(ua))return'tablet';if(/mobile|iphone|android/i.test(ua))return'mobile';return'desktop';}
+  function log(d,icon,type,text){d.log.unshift({icon,type,text,time:new Date().toLocaleTimeString()});if(d.log.length>50)d.log.pop();}
+  
+  // Page view
+  var page=document.title.replace(/[^a-zA-Z]/g,'').slice(0,15)||location.pathname.split('/').pop()||'Home';
+  var pages={'index':'Home','about':'About','projects':'Projects','experience':'Experience','resume':'Resume'};
+  var pg=pages[page.toLowerCase()]||page;
+  var d=getData();d.pageviews++;d.visitors++;
+  d.pages[pg]=(d.pages[pg]||0)+1;
+  var dv=dev();d.devices[dv]=(d.devices[dv]||0)+1;
+  log(d,'👁️','visit','New visit to '+pg);
+  save(d);
+
+  // Click tracking
+  var start=Date.now();
+  document.addEventListener('click',function(e){
+    var el=e.target.closest('a,button');
+    if(!el)return;
+    var t=el.textContent.trim().slice(0,20)||el.href||'Link';
+    var d2=getData();d2.clicks++;
+    d2.clickTargets[t]=(d2.clickTargets[t]||0)+1;
+    log(d2,'🖱️','click','Clicked '+t);
+    save(d2);
+  });
+
+  // Session time
+  window.addEventListener('beforeunload',function(){
+    var dur=Math.round((Date.now()-start)/1000);
+    var d3=getData();d3.totalTime+=dur;d3.sessionCount++;
+    log(d3,'⏱️','nav','Session ended — '+dur+'s');
+    save(d3);
+  });
+})();
+    </script>
 </body>
 </html>
